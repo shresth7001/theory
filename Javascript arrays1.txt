@@ -1,0 +1,209 @@
+#####################------------------------Javascript array-----------------------------####################
+-- JavaScript arrays are used to store multiple values in a single variable.
+Example const cars = ["Saab", "Volvo", "BMW"];
+##---------Creating an Array--------##
+Syntax:
+
+const array_name = [item1, item2, ...];      
+Example1 : const cars = ["Saab", "Volvo", "BMW"];
+Example2 : 
+const cars = [];
+cars[0]= "Saab";
+cars[1]= "Volvo";
+cars[2]= "BMW";
+##---------Using the JavaScript Keyword new--------##
+const cars = new Array("Saab", "Volvo", "BMW");
+
+
+##---------Accessing Array Elements--------##
+You access an array element by referring to the index number:
+Ex: const cars = ["Saab", "Volvo", "BMW"];
+	 let x = cars[0];    // x = "Saab"
+	 
+##---------Array Properties and Methods--------##
+The real strength of JavaScript arrays are the built-in array properties and methods:
+
+cars.length   // Returns the number of elements
+cars.sort()   // Sorts the array
+-- Adding Array Elements:
+Ex: const fruits = ["Banana", "Orange", "Apple"];
+fruits.push("Lemon");  // Adds a new element (Lemon) to fruits
+	--New element can also be added to an array using the length property:
+	Example
+	const fruits = ["Banana", "Orange", "Apple"];
+	fruits[fruits.length] = "Lemon";  // Adds "Lemon" to fruits
+-- When to Use Arrays. When to use Objects. 
+a>JavaScript does not support associative arrays.
+b>You should use objects when you want the element names to be strings (text).
+c>You should use arrays when you want the element names to be numbers.
+
+
+##---------JavaScript new Array()--------##
+
+These two different statements both create a new empty array named points:
+
+	const points = new Array();
+	const points = [];
+// Create an array with three elements:
+const points = new Array(40, 100, 1);
+// Create an array with two elements:
+const points = new Array(40, 100);
+// Create an array with 40 undefined elements:
+const points = new Array(40);  
+// Create an array with one element:
+const points = [40];
+
+##---------How to Recognize an Array--------##	
+--The typeof operator returns object because a JavaScript array is an object.
+const fruits = ["Banana", "Orange", "Apple"];
+typeof fruits;    // returns object
+Solution 1:
+To solve this problem ECMAScript 5 defines a new method Array.isArray():
+
+Array.isArray(fruits);   // returns true
+Solution 2:
+The instanceof operator returns true if an object is created by a given constructor:
+
+const fruits = ["Banana", "Orange", "Apple"];
+
+fruits instanceof Array;   // returns true
+
+##------------------------------------------JavaScript Array Methods-------------------------------------------##
+Converting Arrays to Strings
+The JavaScript method toString() converts an array to a string of (comma separated) array values.
+
+Example:
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.toString();
+output:Banana,Orange,Apple,Mango
+-- The join() method also joins all array elements into a string.
+
+It behaves just like toString(), but in addition you can specify the separator:
+
+Example
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.join(" * ");
+Result:
+
+Banana * Orange * Apple * Mango
+
+##------Popping and Pushing-------------##
+Popping items out of an array, or pushing items into an array.
+####Popping
+--The pop() method removes the last element from an array:
+
+Example
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.pop();  // Removes "Mango" from fruits
+console.log(fruits): ['Banana', 'Orange', 'Apple']
+
+--The pop() method returns the value that was "popped out":
+
+Example
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let x = fruits.pop();  // x = "Mango"
+####Pushing
+The push() method adds a new element to an array (at the end):
+
+Example
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.push("Kiwi");   // Adds "Kiwi" to fruits
+--The push() method returns the new array length:
+
+Example
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let x = fruits.push("Kiwi");   //  x = 5
+--Shifting--
+	Shifting Elements
+Shifting is equivalent to popping, working on the first element instead of the last.
+
+The shift() method removes the first array element and "shifts" all other elements to a lower index.
+
+Example
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.shift();   // Removes "Banana" from fruits
+console.log(fruits): ['Orange', 'Apple', 'Mango']
+--The shift() method returns the value that was "shifted out":
+
+Example
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let x = fruits.shift();    // x = "Banana"
+
+--Unshift--
+The unshift() method adds a new element to an array (at the beginning), and "unshifts" older elements:
+
+Example
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.unshift("Lemon");    // Adds "Lemon" to fruits
+
+-- The unshift() method returns the new array length.
+
+Example
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.unshift("Lemon");    // Returns 5
+
+
+-------------------Deleting Elements-------------------------
+Since JavaScript arrays are objects, elements can be deleted by using the JavaScript operator delete:
+
+Example
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+delete fruits[0];           // Changes the first element in fruits to undefined
+
+
+
+-------------------------------------Splicing an Array------------------------------------
+##The splice() method can be used to add new items to an array:
+Example
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(2, 0, "Lemon", "Kiwi");
+The first parameter (2) defines the position where new elements should be added (spliced in).
+
+The second parameter (0) defines how many elements should be removed.
+
+The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be added.
+console.log(fruits):['Banana', 'Orange', 'Lemon', 'Kiwi', 'Apple', 'Mango']
+
+
+##The splice() method returns an array with the deleted items:
+
+Example
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(2, 2, "Lemon", "Kiwi"); // ["Apple", "Mango"]
+console.log(fruits): ['Banana', 'Orange', 'Lemon', 'Kiwi']
+
+---------Using splice() to Remove Elements------------------
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(0, 1);   // Removes the first element
+
+The first parameter (0) defines the position where new elements should be added (spliced in).
+
+The second parameter (1) defines how many elements should be removed.
+
+The rest of the parameters are omitted. No new elements will be added.
+
+
+-----------------------Merging (Concatenating) Arrays--------------------------
+The concat() method creates a new array by merging (concatenating) existing arrays:
+
+Example (Merging Two Arrays)
+const myGirls = ["Cecilie", "Lone"];
+const myBoys = ["Emil", "Tobias", "Linus"];
+
+// Concatenate (join) myGirls and myBoys
+const myChildren = myGirls.concat(myBoys);  
+##The concat() method can take any number of array arguments: 
+Ex: const myChildren = arr1.concat(arr2, arr3);
+
+
+--------------Slicing an Array---------------------
+The slice() method slices out a piece of an array into a new array.
+The slice() method creates a new array. It does not remove any elements from the source array.
+This example slices out a part of an array starting from array element 1 ("Orange"):
+Ex:
+const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(1);
+o/p:['Orange', 'Lemon', 'Apple', 'Mango'];
+
+
+
